@@ -1,0 +1,9 @@
+[window]
+title = "Venom's Terminal"
+dynamic_title = true
+
+[keyboard]
+bindings = [
+    {key = "PageUp", action = "ScrollLineUp"},
+    {key = "PageDown", action = "ScrollLineDown"}
+]
