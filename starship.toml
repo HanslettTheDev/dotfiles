@@ -1,11 +1,12 @@
 add_newline = true
 
-[character]
-success_symbol = "[⚡](bold green) "
-error_symbol = "[❌](bold red) "
+# [character]
+# success_symbol = "[⚡](bold green) "
+# error_symbol = "[❌](bold red) "
 
 [aws]
 disabled = true
+symbol = "  "
 
 [time]
 disabled = true
@@ -15,35 +16,164 @@ disabled = true
 
 [directory]
 truncation_length = 8
+read_only = " 󰌾"
 
 [hostname]
 disabled = false
+ssh_symbol = " "
 
 [nodejs]
-symbol = "🤢"
+symbol = " "
 
 [battery]
-full_symbol = "🔋 "
+# full_symbol = "🔋 "
 charging_symbol = "⚡️ "
-discharging_symbol = "💀 "
+# discharging_symbol = "💀 "
 disabled = false
 
 [git_status]
-conflicted = "🚩"
-ahead = "💨"
+# conflicted = "🚩"
+# ahead = "💨"
 behind = "😰"
 diverged = "😵"
-untracked = "🤷"
-stashed = "📦"
-modified = "📝"
+# untracked = "🤷"
+# stashed = "📦"
+# modified = "📝"
 staged = '[++\($count\)](green)'
-renamed = "👅"
-deleted = "💥"
+# renamed = "👅"
+# deleted = "💥"
 
-[shell]
-fish_indicator = "🦈"
-bash_indicator = "🌞"
-disabled = false
+# [shell]
+# fish_indicator = "🦈"
+# bash_indicator = "🌞"
+# disabled = false
 
 [python]
 python_binary = ["./venv/Scripts/python", "./evenv/Scripts/python", "./envs/Scripts/python", "python3", "python"]
+symbol = " "
+
+# This section defines personalised icons
+
+[buf]
+symbol = " "
+
+[c]
+symbol = " "
+
+[cmake]
+symbol = " "
+
+[conda]
+symbol = " "
+
+[crystal]
+symbol = " "
+
+[dart]
+symbol = " "
+
+[docker_context]
+symbol = " "
+
+[elixir]
+symbol = " "
+
+[elm]
+symbol = " "
+
+[fennel]
+symbol = " "
+
+[fossil_branch]
+symbol = " "
+
+[git_branch]
+symbol = " "
+
+[git_commit]
+tag_symbol = '  '
+
+[golang]
+symbol = " "
+
+[guix_shell]
+symbol = " "
+
+[haskell]
+symbol = " "
+
+[haxe]
+symbol = " "
+
+[hg_branch]
+symbol = " "
+
+[java]
+symbol = " "
+
+[julia]
+symbol = " "
+
+[kotlin]
+symbol = " "
+
+[lua]
+symbol = " "
+
+[memory_usage]
+symbol = "󰍛 "
+
+[meson]
+symbol = "󰔷 "
+
+[nim]
+symbol = "󰆥 "
+
+[nix_shell]
+symbol = " "
+
+[ocaml]
+symbol = " "
+
+[os.symbols]
+Android = " "
+Arch = " "
+CentOS = " "
+Kali = " "
+Linux = " "
+Ubuntu = " "
+Unknown = " "
+Windows = "󰍲 "
+
+[package]
+symbol = "󰏗 "
+
+[perl]
+symbol = " "
+
+[php]
+symbol = " "
+
+[pijul_channel]
+symbol = " "
+
+[rlang]
+symbol = "󰟔 "
+
+[ruby]
+symbol = " "
+
+[rust]
+symbol = "󱘗 "
+
+[scala]
+symbol = " "
+
+[swift]
+symbol = " "
+
+[zig]
+symbol = " "
+
+[gradle]
+symbol = " "
