@@ -86,9 +86,9 @@ return require("packer").startup(function(use)
 
 	-- formatting and linters
 	use("stevearc/conform.nvim")
-    
-    -- Go Lang fmt
-    use("fatih/vim-go")
+
+	-- Go Lang fmt
+	use("fatih/vim-go")
 
 	-- treesitter
 	use("nvim-treesitter/nvim-treesitter")
@@ -106,7 +106,7 @@ return require("packer").startup(function(use)
 	use("terrortylor/nvim-comment")
 
 	-- Codeium Coding assistant
-	use("Exafunction/codeium.vim")
+	-- use("Exafunction/codeium.vim")
 
 	if packer_bootstrap then
 		require("packer").sync()

@@ -13,7 +13,7 @@ local keymap = vim.keymap
 -- enable keybinds for available lsp server
 local on_attach = function(client, buffnr)
 	-- keybind options
-	local opts = { noremap = true, silent = true, buffer = bufnr }
+	local opts = { noremap = true, silent = true, buffer = buffnr }
 
 	-- set keybinds
 	keymap.set("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts) -- show definition, references
@@ -51,7 +51,7 @@ lspconfig["intelephense"].setup({
 })
 
 -- configure tsserver
-lspconfig["tsserver"].setup({
+lspconfig["ts_ls"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
