@@ -116,3 +116,9 @@ lspconfig["gopls"].setup({
 		},
 	},
 })
+
+-- configure C
+lspconfig["clangd"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
