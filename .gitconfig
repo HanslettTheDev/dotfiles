@@ -1,9 +1,11 @@
 [user]
-	email = Hanslettthedev@gmail.com
-	name = Hanslettthedev
+	email = hanslettthedev@gmail.com
+    name = Venom
+    username = HanslettTheDev
 [core]
 	editor = nvim
 [credential]
+    username = HanslettTheDev
 	helper = store
 [init]
 	defaultBranch = main
