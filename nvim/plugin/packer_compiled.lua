@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/venom/snap/alacritty/common/.cache/nvim/packer_hererocks/2.1.1713484068/share/lua/5.1/?.lua;/home/venom/snap/alacritty/common/.cache/nvim/packer_hererocks/2.1.1713484068/share/lua/5.1/?/init.lua;/home/venom/snap/alacritty/common/.cache/nvim/packer_hererocks/2.1.1713484068/lib/luarocks/rocks-5.1/?.lua;/home/venom/snap/alacritty/common/.cache/nvim/packer_hererocks/2.1.1713484068/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/venom/snap/alacritty/common/.cache/nvim/packer_hererocks/2.1.1713484068/lib/lua/5.1/?.so"
+local package_path_str = "/home/venom/.cache/nvim/packer_hererocks/2.1.1713484068/share/lua/5.1/?.lua;/home/venom/.cache/nvim/packer_hererocks/2.1.1713484068/share/lua/5.1/?/init.lua;/home/venom/.cache/nvim/packer_hererocks/2.1.1713484068/lib/luarocks/rocks-5.1/?.lua;/home/venom/.cache/nvim/packer_hererocks/2.1.1713484068/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/venom/.cache/nvim/packer_hererocks/2.1.1713484068/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -114,6 +114,11 @@ _G.packer_plugins = {
     path = "/home/venom/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
+  ["laravel.nvim"] = {
+    loaded = true,
+    path = "/home/venom/.local/share/nvim/site/pack/packer/start/laravel.nvim",
+    url = "https://github.com/adalessa/laravel.nvim"
+  },
   ["lspkind.nvim"] = {
     loaded = true,
     path = "/home/venom/.local/share/nvim/site/pack/packer/start/lspkind.nvim",
@@ -149,11 +154,6 @@ _G.packer_plugins = {
     path = "/home/venom/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
-  ["nvim-comment"] = {
-    loaded = true,
-    path = "/home/venom/.local/share/nvim/site/pack/packer/start/nvim-comment",
-    url = "https://github.com/terrortylor/nvim-comment"
-  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/venom/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
@@ -173,6 +173,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/venom/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag",
     url = "https://github.com/windwp/nvim-ts-autotag"
+  },
+  ["nvim-ts-context-commentstring"] = {
+    loaded = true,
+    path = "/home/venom/.local/share/nvim/site/pack/packer/start/nvim-ts-context-commentstring",
+    url = "https://github.com/JoosepAlviste/nvim-ts-context-commentstring"
   },
   ["nvim-web-devicons"] = {
     loaded = true,

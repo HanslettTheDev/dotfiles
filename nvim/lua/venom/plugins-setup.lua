@@ -102,11 +102,14 @@ return require("packer").startup(function(use)
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 
-	-- Auto commenting
-	use("terrortylor/nvim-comment")
-
 	-- Codeium Coding assistant
 	-- use("Exafunction/codeium.vim")
+
+	-- Laravel
+	use("adalessa/laravel.nvim")
+
+	-- context commenting for multiple language buffers
+	use("JoosepAlviste/nvim-ts-context-commentstring")
 
 	if packer_bootstrap then
 		require("packer").sync()
