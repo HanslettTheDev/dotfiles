@@ -119,6 +119,11 @@ _G.packer_plugins = {
     path = "/home/venom/.local/share/nvim/site/pack/packer/start/laravel.nvim",
     url = "https://github.com/adalessa/laravel.nvim"
   },
+  ["live-server.nvim"] = {
+    loaded = true,
+    path = "/home/venom/.local/share/nvim/site/pack/packer/start/live-server.nvim",
+    url = "https://github.com/barrett-ruth/live-server.nvim"
+  },
   ["lspkind.nvim"] = {
     loaded = true,
     path = "/home/venom/.local/share/nvim/site/pack/packer/start/lspkind.nvim",

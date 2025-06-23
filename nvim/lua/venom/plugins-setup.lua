@@ -111,6 +111,9 @@ return require("packer").startup(function(use)
 	-- context commenting for multiple language buffers
 	use("JoosepAlviste/nvim-ts-context-commentstring")
 
+	-- Live server
+	use("barrett-ruth/live-server.nvim")
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
