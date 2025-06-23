@@ -15,6 +15,7 @@ require("venom.plugins.treesitter")
 require("venom.plugins.gitsigns")
 require("venom.plugins.formatting")
 require("venom.plugins.ts-context")
+require("venom.plugins.live-server")
 
 -- colorscheme
 -- vim.cmd([[ colorscheme palenight ]])

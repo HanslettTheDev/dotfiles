@@ -38,11 +38,11 @@ lspconfig["html"].setup({
 	on_attach = on_attach,
 })
 
--- configure vue server
-lspconfig["volar"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
+-- -- configure vue server
+-- lspconfig["volar"].setup({
+-- 	capabilities = capabilities,
+-- 	on_attach = on_attach,
+-- })
 
 -- configure php server
 lspconfig["intelephense"].setup({
