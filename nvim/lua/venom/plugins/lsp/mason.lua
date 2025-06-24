@@ -27,7 +27,6 @@ mason_lspconfig.setup({
 		"marksman",
 		"intelephense",
 		"powershell_es",
-		"volar",
 		"pyright",
 	},
 	-- auto-install configured servers (with lspconfig)

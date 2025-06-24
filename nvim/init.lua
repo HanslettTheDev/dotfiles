@@ -17,11 +17,5 @@ require("venom.plugins.formatting")
 require("venom.plugins.ts-context")
 require("venom.plugins.live-server")
 
--- colorscheme
--- vim.cmd([[ colorscheme palenight ]])
-vim.cmd([[ set background=dark ]])
--- set termguicolors to enable highlight groups
-vim.g.termuguicolors = true
-
 print("status: plugins sourced successfully")
 -- vim.cmd([[ let g:python_host_prog = 'C:/Users/DELL/AppData/Local/Programs/Python/Python310' ]])

@@ -1,3 +1,11 @@
+# Kanagawa | cyber dream color imports
+[general]
+import = [
+    # "~/.config/alacritty/kanagawa.toml", 
+    "~/.config/alacritty/cyberdream.toml"
+]
+
+
 [keyboard]
 bindings = [
     {key = "PageUp", action = "ScrollLineUp"},
@@ -8,4 +16,5 @@ bindings = [
 title = "VENOM - Terminal"
 dynamic_title = true
 startup_mode = "Maximized"
+
 

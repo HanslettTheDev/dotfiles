@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/venom/.cache/nvim/packer_hererocks/2.1.1713484068/share/lua/5.1/?.lua;/home/venom/.cache/nvim/packer_hererocks/2.1.1713484068/share/lua/5.1/?/init.lua;/home/venom/.cache/nvim/packer_hererocks/2.1.1713484068/lib/luarocks/rocks-5.1/?.lua;/home/venom/.cache/nvim/packer_hererocks/2.1.1713484068/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/venom/.cache/nvim/packer_hererocks/2.1.1713484068/lib/lua/5.1/?.so"
+local package_path_str = "/home/venom/.cache/nvim/packer_hererocks/2.1.1741730670/share/lua/5.1/?.lua;/home/venom/.cache/nvim/packer_hererocks/2.1.1741730670/share/lua/5.1/?/init.lua;/home/venom/.cache/nvim/packer_hererocks/2.1.1741730670/lib/luarocks/rocks-5.1/?.lua;/home/venom/.cache/nvim/packer_hererocks/2.1.1741730670/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/venom/.cache/nvim/packer_hererocks/2.1.1741730670/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -109,10 +109,20 @@ _G.packer_plugins = {
     path = "/home/venom/.local/share/nvim/site/pack/packer/start/conform.nvim",
     url = "https://github.com/stevearc/conform.nvim"
   },
+  ["cyberdream.nvim"] = {
+    loaded = true,
+    path = "/home/venom/.local/share/nvim/site/pack/packer/start/cyberdream.nvim",
+    url = "https://github.com/scottmckendry/cyberdream.nvim"
+  },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "/home/venom/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
+  ["kanagawa.nvim"] = {
+    loaded = true,
+    path = "/home/venom/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
+    url = "https://github.com/rebelot/kanagawa.nvim"
   },
   ["laravel.nvim"] = {
     loaded = true,
@@ -148,6 +158,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/venom/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
+  },
+  ["nui.nvim"] = {
+    loaded = true,
+    path = "/home/venom/.local/share/nvim/site/pack/packer/start/nui.nvim",
+    url = "https://github.com/MunifTanjim/nui.nvim"
   },
   ["nvim-autopairs"] = {
     loaded = true,
@@ -194,15 +209,15 @@ _G.packer_plugins = {
     path = "/home/venom/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
-  ["palenight.vim"] = {
-    loaded = true,
-    path = "/home/venom/.local/share/nvim/site/pack/packer/start/palenight.vim",
-    url = "https://github.com/drewtempelmeyer/palenight.vim"
-  },
   ["plenary.nvim"] = {
     loaded = true,
     path = "/home/venom/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  ["promise-async"] = {
+    loaded = true,
+    path = "/home/venom/.local/share/nvim/site/pack/packer/start/promise-async",
+    url = "https://github.com/kevinhwang91/promise-async"
   },
   ["telescope-fzf-native.nvim"] = {
     loaded = true,
@@ -223,11 +238,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/venom/.local/share/nvim/site/pack/packer/start/vim-maximizer",
     url = "https://github.com/szw/vim-maximizer"
-  },
-  ["vim-nightfly-guicolors"] = {
-    loaded = true,
-    path = "/home/venom/.local/share/nvim/site/pack/packer/start/vim-nightfly-guicolors",
-    url = "https://github.com/bluz71/vim-nightfly-guicolors"
   },
   ["vim-tmux-navigator"] = {
     loaded = true,

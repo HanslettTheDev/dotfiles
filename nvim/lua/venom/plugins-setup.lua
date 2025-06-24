@@ -34,9 +34,8 @@ return require("packer").startup(function(use)
 	use("nvim-lua/plenary.nvim")
 
 	-- color schemes
-	use("bluz71/vim-nightfly-guicolors")
-
-	use("drewtempelmeyer/palenight.vim")
+	use("rebelot/kanagawa.nvim")
+	use("scottmckendry/cyberdream.nvim")
 
 	-- tmux and split window navigation
 	use("christoomey/vim-tmux-navigator")
@@ -107,6 +106,8 @@ return require("packer").startup(function(use)
 
 	-- Laravel
 	use("adalessa/laravel.nvim")
+	use("MunifTanjim/nui.nvim")
+	use("kevinhwang91/promise-async")
 
 	-- context commenting for multiple language buffers
 	use("JoosepAlviste/nvim-ts-context-commentstring")
