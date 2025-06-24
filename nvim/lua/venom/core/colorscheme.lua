@@ -9,7 +9,3 @@
 
 -- Cyberdream colorscheme
 vim.cmd("colorscheme cyberdream")
-
--- set termguicolors to enable highlight groups
--- vim.cmd([[ set background=dark ]])
-vim.g.termuguicolors = true
