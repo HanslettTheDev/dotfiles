@@ -61,3 +61,7 @@ keymap.set("n", "<leader>bb", "<C-^><cr>")
 
 -- Open/close the floating error window
 keymap.set("n", "<leader>s", "<cmd>lua vim.diagnostic.open_float(nil, {focus=true})<CR>", ops)
+
+-- Starting Live server
+keymap.set("n", "<leader>ll", "<cmd>LiveServerStart<CR>")
+keymap.set("n", "<leader>ls", "<cmd>LiveServerStop<CR>")
