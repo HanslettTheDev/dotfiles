@@ -8,7 +8,7 @@ mason_conform.setup({
 		lua = { "stylua" },
 		python = { "isort", "black" },
 		-- rust = { "rustfmt", lsp_format = "fallback" },
-		javascript = { "prettierd", stop_after_first = true },
+		javascript = { "prettierd" },
 		html = { "prettierd" },
 		css = { "prettierd" },
 		json = { "prettierd" },
