@@ -1,9 +1,9 @@
-local lspconfig_status, lspconfig = pcall(require, "lspconfig")
+local lspconfig_status, lspconfig = pcall(vim.lsp.config["lspconfig"])
 if not lspconfig_status then
 	return
 end
 
-local cmp_nvim_lsp_status, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+local cmp_nvim_lsp_status, cmp_nvim_lsp = pcall(vim.lsp.config["cmp_nvim_lsp"])
 if not cmp_nvim_lsp_status then
 	return
 end
