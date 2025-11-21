@@ -132,6 +132,8 @@ fi
 export PATH=/home/venom/go/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/usr/local/go/bin
 
 export PATH="/home/venom/.config/herd-lite/bin:$PATH"
+
+export PATH="$HOME/.local/bin/:$PATH"
 export PHP_INI_SCAN_DIR="/home/venom/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
 
 export NVM_DIR="$HOME/.nvm"
