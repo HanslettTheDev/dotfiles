@@ -1,1 +1,0 @@
-/home/venom/.config/i3
