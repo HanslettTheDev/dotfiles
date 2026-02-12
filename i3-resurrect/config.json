@@ -7,8 +7,5 @@
     }
   ],
   "window_swallow_criteria": {},
-  "terminals": [
-    "Gnome-terminal",
-    "Alacritty"
-  ]
+  "terminals": ["Gnome-terminal", "Alacritty"]
 }
