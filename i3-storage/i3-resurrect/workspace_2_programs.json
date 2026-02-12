@@ -1,0 +1,14 @@
+[
+  {
+    "command": [
+      "/opt/google/chrome/chrome"
+    ],
+    "working_directory": "/home/venom"
+  },
+  {
+    "command": [
+      "/snap/alacritty/150/bin/alacritty"
+    ],
+    "working_directory": "/home/venom"
+  }
+]

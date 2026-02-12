@@ -1,1 +1,1 @@
-{"type":"rtmp_common","settings":{"service":"Twitch","server":"rtmp://mad01.contribute.live-video.net/app","key":"live_818392557_ueYKd1HEFb7lQ6L3RmQZ8kwQTrJzWQ"}}
+{"type":"rtmp_custom","settings":{"server":"rtmps://dc4-1.rtmp.t.me/s/","use_auth":false,"bwtest":false,"key":"1814226898:06NTw6ZqZyIWddrsZsHiqw"}}

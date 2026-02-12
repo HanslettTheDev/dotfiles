@@ -1,0 +1,11 @@
+[
+  {
+    "command": [
+      "/snap/postman/254/usr/share/postman/postman",
+      "--no-sandbox",
+      "--enable-crashpad",
+      "--enable-crashpad"
+    ],
+    "working_directory": "/home/venom"
+  }
+]

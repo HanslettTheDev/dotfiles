@@ -1,0 +1,20 @@
+[
+  {
+    "command": [
+      "/opt/google/chrome/chrome"
+    ],
+    "working_directory": "/home/venom"
+  },
+  {
+    "command": [
+      "gnome-terminal"
+    ],
+    "working_directory": "/home/venom/.dotfiles/i3-resurrect"
+  },
+  {
+    "command": [
+      "/snap/telegram-desktop/6899/usr/bin/telegram-desktop"
+    ],
+    "working_directory": "/home/venom/snap/telegram-desktop/6899/.local/share/TelegramDesktop"
+  }
+]

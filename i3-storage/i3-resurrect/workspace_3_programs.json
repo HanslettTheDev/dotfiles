@@ -1,0 +1,14 @@
+[
+  {
+    "command": [
+      "/opt/google/chrome/chrome"
+    ],
+    "working_directory": "/home/venom"
+  },
+  {
+    "command": [
+      "/opt/google/chrome/chrome"
+    ],
+    "working_directory": "/home/venom"
+  }
+]
