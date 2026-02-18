@@ -1,13 +1,9 @@
 [
   {
     "command": [
-      "/opt/google/chrome/chrome"
-    ],
-    "working_directory": "/home/venom"
-  },
-  {
-    "command": [
-      "/opt/google/chrome/chrome"
+      "/snap/postman/254/usr/share/postman/postman",
+      "--no-sandbox",
+      "--enable-crashpad"
     ],
     "working_directory": "/home/venom"
   }

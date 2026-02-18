@@ -2,7 +2,7 @@
   "border": "normal",
   "current_border_width": -1,
   "floating": "auto_off",
-  "fullscreen_mode": 0,
+  "fullscreen_mode": 1,
   "geometry": {
     "x": 0,
     "y": 0,
@@ -13,7 +13,7 @@
   "marks": [],
   "name": "3",
   "orientation": "horizontal",
-  "percent": 0.25,
+  "percent": 0.3333333333333333,
   "scratchpad_state": "none",
   "sticky": false,
   "type": "workspace",
@@ -21,80 +21,28 @@
   "nodes": [
     {
       "border": "normal",
-      "current_border_width": -1,
+      "current_border_width": 2,
       "floating": "auto_off",
       "fullscreen_mode": 0,
       "geometry": {
-        "x": 0,
-        "y": 0,
-        "width": 0,
-        "height": 0
+        "x": 2,
+        "y": 49,
+        "width": 1916,
+        "height": 1010
       },
-      "layout": "tabbed",
+      "layout": "splith",
       "marks": [],
-      "name": null,
-      "orientation": "horizontal",
+      "name": "http://localhost:8000/api/progress/exercises/5/ - Venom's Workspace",
+      "orientation": "none",
       "percent": 1.0,
       "scratchpad_state": "none",
       "sticky": false,
       "type": "con",
       "workspace_layout": "default",
-      "nodes": [
+      "swallows": [
         {
-          "border": "normal",
-          "current_border_width": 2,
-          "floating": "auto_off",
-          "fullscreen_mode": 0,
-          "geometry": {
-            "x": 2,
-            "y": 36,
-            "width": 1916,
-            "height": 1023
-          },
-          "layout": "splith",
-          "marks": [],
-          "name": "New Tab - Google Chrome",
-          "orientation": "none",
-          "percent": 0.5,
-          "scratchpad_state": "none",
-          "sticky": false,
-          "type": "con",
-          "workspace_layout": "default",
-          "swallows": [
-            {
-              "class": "^Google\\-chrome$",
-              "instance": "^google\\-chrome$",
-              "title": "^New\\ Tab\\ \\-\\ Google\\ Chrome$"
-            }
-          ]
-        },
-        {
-          "border": "normal",
-          "current_border_width": 2,
-          "floating": "auto_off",
-          "fullscreen_mode": 0,
-          "geometry": {
-            "x": 0,
-            "y": 18,
-            "width": 1916,
-            "height": 1041
-          },
-          "layout": "splith",
-          "marks": [],
-          "name": "First Steps with Celery \u2014 Celery 5.6.2 documentation - Google Chrome",
-          "orientation": "none",
-          "percent": 0.5,
-          "scratchpad_state": "none",
-          "sticky": false,
-          "type": "con",
-          "workspace_layout": "default",
-          "swallows": [
-            {
-              "class": "^Google\\-chrome$",
-              "instance": "^google\\-chrome$",
-              "title": "^First\\ Steps\\ with\\ Celery\\ \u2014\\ Celery\\ 5\\.6\\.2\\ documentation\\ \\-\\ Google\\ Chrome$"
-            }
-          ]
+          "class": "^Postman$",
+          "instance": "^postman$"
         }
       ]
     }

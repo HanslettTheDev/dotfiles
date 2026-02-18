@@ -13,7 +13,7 @@
   "marks": [],
   "name": "2",
   "orientation": "horizontal",
-  "percent": 0.125,
+  "percent": 0.3333333333333333,
   "scratchpad_state": "none",
   "sticky": false,
   "type": "workspace",
@@ -30,11 +30,11 @@
         "width": 0,
         "height": 0
       },
-      "layout": "splitv",
+      "layout": "splith",
       "marks": [],
       "name": null,
-      "orientation": "vertical",
-      "percent": 0.5723958333333334,
+      "orientation": "horizontal",
+      "percent": 1.0,
       "scratchpad_state": "none",
       "sticky": false,
       "type": "con",
@@ -46,16 +46,16 @@
           "floating": "auto_off",
           "fullscreen_mode": 0,
           "geometry": {
-            "x": 2,
-            "y": 18,
-            "width": 524,
+            "x": 0,
+            "y": 0,
+            "width": 1916,
             "height": 1041
           },
           "layout": "splith",
           "marks": [],
-          "name": "developer.chrome.com/docs/extensions/get-started/tutorial/hello-world - Google Chrome",
+          "name": "The Django admin site | Django documentation | Django - Google Chrome",
           "orientation": "none",
-          "percent": 1.0,
+          "percent": 0.30000000000000004,
           "scratchpad_state": "none",
           "sticky": false,
           "type": "con",
@@ -63,34 +63,10 @@
           "swallows": [
             {
               "class": "^Google\\-chrome$",
-              "instance": "^google\\-chrome$",
-              "title": "^developer\\.chrome\\.com/docs/extensions/get\\-started/tutorial/hello\\-world\\ \\-\\ Google\\ Chrome$"
+              "instance": "^google\\-chrome$"
             }
           ]
-        }
-      ]
-    },
-    {
-      "border": "normal",
-      "current_border_width": -1,
-      "floating": "auto_off",
-      "fullscreen_mode": 0,
-      "geometry": {
-        "x": 0,
-        "y": 0,
-        "width": 0,
-        "height": 0
-      },
-      "layout": "tabbed",
-      "marks": [],
-      "name": null,
-      "orientation": "horizontal",
-      "percent": 0.4276041666666666,
-      "scratchpad_state": "none",
-      "sticky": false,
-      "type": "con",
-      "workspace_layout": "default",
-      "nodes": [
+        },
         {
           "border": "normal",
           "current_border_width": 2,
@@ -106,7 +82,7 @@
           "marks": [],
           "name": "VENOM - Terminal",
           "orientation": "none",
-          "percent": 1.0,
+          "percent": 0.7,
           "scratchpad_state": "none",
           "sticky": false,
           "type": "con",
@@ -114,8 +90,7 @@
           "swallows": [
             {
               "class": "^Alacritty$",
-              "instance": "^Alacritty$",
-              "title": "^VENOM\\ \\-\\ Terminal$"
+              "instance": "^Alacritty$"
             }
           ]
         }

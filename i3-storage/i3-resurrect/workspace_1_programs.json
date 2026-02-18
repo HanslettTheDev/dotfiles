@@ -9,7 +9,7 @@
     "command": [
       "gnome-terminal"
     ],
-    "working_directory": "/home/venom/.dotfiles/i3-resurrect"
+    "working_directory": "/home/venom/.dotfiles"
   },
   {
     "command": [
