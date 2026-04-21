@@ -1,12 +1,14 @@
-local lspconfig_status, lspconfig = pcall(vim.lsp.config["lspconfig"])
-if not lspconfig_status then
+-- =========================================
+-- LOCAL VARIABLES AND FUNCTION DECLARATIONS
+-- =========================================
+
+local mason_registry = require("mason-registry")
+local ok_cmp, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if not ok_cmp then
 	return
 end
 
-local cmp_nvim_lsp_status, cmp_nvim_lsp = pcall(vim.lsp.config["cmp_nvim_lsp"])
-if not cmp_nvim_lsp_status then
-	return
-end
+local capabilities = cmp_nvim_lsp.default_capabilities()
 
 local keymap = vim.keymap
 
@@ -30,55 +32,61 @@ local on_attach = function(client, buffnr)
 	keymap.set("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", opts) -- see outline on right hand side
 end
 
-local capabilities = cmp_nvim_lsp.default_capabilities()
+local vue_ls_path = vim.fn.expand("$MASON/packages") .. "/vue-language-server" .. "/node_modules/@vue/language-server"
+local vue_ts_plugin_path = vue_ls_path .. "/node_modules/@vue/language-server"
+
+-- Defining the  Vue TypeScript plugin
+local vue_plugin = {
+	name = "@vue/typescript-plugin",
+	location = vue_ts_plugin_path,
+	languages = { "javascript", "typescript", "vue" },
+}
+
+local tsserver_filetypes = {
+	"typescript",
+	"javascript",
+	"javascriptreact",
+	"typescriptreact",
+	"vue",
+}
+
+-- =========================================
+-- SETTING UP LSP CONFIGURATIONS
+-- =========================================
+
+-- DEFAULT CONFIGURATIONS FOR ALL LSP
+vim.lsp.config("*", {
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
 
 -- configure html server
-lspconfig["html"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
-
--- -- configure vue server
-lspconfig["volar"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
+vim.lsp.config("html", {})
 
 -- configure php server
-lspconfig["intelephense"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
-
--- configure tsserver
-lspconfig["ts_ls"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
+vim.lsp.config("intelephense", {})
 
 -- configure css server
-lspconfig["cssls"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
-
--- configure tailwindcss server
-lspconfig["tailwindcss"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
+vim.lsp.config("cssls", {})
 
 -- configure emmet language server
-lspconfig["emmet_ls"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-	filetypes = { "html", "typescriptreact", "javascriptreact", "javascript", "css", "sass", "scss", "less", "svelte" },
+vim.lsp.config("emmet_ls", {
+	filetypes = {
+		"html",
+		"typescriptreact",
+		"javascriptreact",
+		"javascript",
+		"css",
+		"sass",
+		"scss",
+		"less",
+		"svelte",
+		"htmldjango",
+	},
 })
 
 -- configure lua server (with special settings)
-lspconfig["lua_ls"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
+vim.lsp.config("lua_ls", {
 	settings = { -- custom settings for lua
 		Lua = {
 			-- make the language server recognize "vim" global
@@ -97,15 +105,10 @@ lspconfig["lua_ls"].setup({
 })
 
 -- configure python
-lspconfig["pyright"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
+vim.lsp.config("pyright", {})
 
 -- configure Go lang
-lspconfig["gopls"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
+vim.lsp.config("gopls", {
 	settings = {
 		gopls = {
 			analyses = {
@@ -118,7 +121,32 @@ lspconfig["gopls"].setup({
 })
 
 -- configure C
-lspconfig["clangd"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
+vim.lsp.config("clangd", {})
+
+-- Configure ts_ls
+vim.lsp.config("ts_ls", {
+	init_options = {
+		plugins = { vue_plugin },
+	},
+	filetypes = tsserver_filetypes,
+	root_markers = { "package.json" },
+	single_file_support = false,
 })
+
+-- Configure vue_ls
+vim.lsp.config("vue_ls", {})
+
+-- =========================================
+-- ENABLE LSP
+-- =========================================
+
+vim.lsp.enable("html")
+vim.lsp.enable("intelephense")
+vim.lsp.enable("cssls")
+vim.lsp.enable("emmet_ls")
+vim.lsp.enable("lua_ls")
+vim.lsp.enable("pyright")
+vim.lsp.enable("gopls")
+vim.lsp.enable("clangd")
+vim.lsp.enable("vue_ls")
+vim.lsp.enable("ts_ls")

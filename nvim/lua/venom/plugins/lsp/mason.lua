@@ -12,13 +12,22 @@ if not mason_lspconfig_status then
 end
 
 -- enable mason
-mason.setup()
+mason.setup({
+	ui = {
+		icons = {
+			package_installed = "✓",
+			package_pending = "➜",
+			package_uninstalled = "✗",
+		},
+	},
+})
 
 mason_lspconfig.setup({
-	-- list of servers for mason to install
+	-- list of servers for mason to install by default
 	ensure_installed = {
-		"ts_ls",
 		"html",
+		"vue_ls",
+		"ts_ls",
 		"cssls",
 		"lua_ls",
 		"emmet_ls",
