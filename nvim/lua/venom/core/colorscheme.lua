@@ -8,4 +8,4 @@
 -- vim.cmd("colorscheme kanagawa-lotus")
 
 -- Cyberdream colorscheme
-vim.cmd("colorscheme cyberdream")
+vim.cmd.colorscheme("cyberdream")

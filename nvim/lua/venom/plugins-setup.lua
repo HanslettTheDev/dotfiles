@@ -98,11 +98,6 @@ return require("packer").startup(function(use)
 
 	-- Git signs
 	use("lewis6991/gitsigns.nvim")
-	-- Automatically set up your configuration after cloning packer.nvim
-	-- Put this at the end after all plugins
-
-	-- Codeium Coding assistant
-	-- use("Exafunction/codeium.vim")
 
 	-- Laravel
 	use("adalessa/laravel.nvim")
@@ -114,6 +109,9 @@ return require("packer").startup(function(use)
 
 	-- Live server
 	use("barrett-ruth/live-server.nvim")
+
+	-- Vim Obsession
+	use("tpope/vim-obsession")
 
 	if packer_bootstrap then
 		require("packer").sync()

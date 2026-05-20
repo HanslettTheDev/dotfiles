@@ -1,7 +1,6 @@
 require("venom.plugins-setup")
 require("venom.core.options")
 require("venom.core.keymaps")
-require("venom.core.colorscheme")
 require("venom.plugins.comment")
 require("venom.plugins.nvim-tree")
 require("venom.plugins.lualine")
@@ -18,9 +17,9 @@ require("venom.plugins.ts-context")
 require("venom.plugins.live-server")
 require("venom.plugins.themes.cyberdream")
 require("venom.plugins.icons.nvim-web-devicons")
+require("venom.core.colorscheme")
 
 -- set termguicolors to enable highlight groups
-vim.cmd([[ set background=dark ]])
-vim.g.termuguicolors = true
+-- vim.cmd([[ set background=dark ]])
 print("status: plugins sourced successfully")
 -- vim.cmd([[ let g:python_host_prog = 'C:/Users/DELL/AppData/Local/Programs/Python/Python310' ]])
