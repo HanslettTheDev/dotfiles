@@ -1,0 +1,98 @@
+# ------------------------------
+# Sample picom configuration
+# ------------------------------
+
+# ==================== DAEMON / BACKEND ====================
+backend = "glx";            # Rendering backend: "xrender", "glx", "xr_glx_hybrid"
+vsync = true;               # Prevent tearing (requires glx backend)
+mark-wmwin-focused = true;  # Focus follows WM focus, not mouse
+mark-ovredir-focused = true;
+
+# ==================== SHADOWS ====================
+shadow = true;
+shadow-radius = 12;
+shadow-offset-x = -6;
+shadow-offset-y = -6;
+shadow-opacity = 0.5;
+shadow-exclude = [
+    "name = 'Notification'",
+    "class_g = 'Conky'",
+    "class_g ?= 'firefox' && argb",
+    "_GTK_FRAME_EXTENTS@:c"
+];
+shadow-ignore-shaped = false;
+
+# ==================== OPACITY / TRANSPARENCY ====================
+inactive-opacity = 0.9;
+active-opacity = 1.0;
+frame-opacity = 1.0;
+inactive-opacity-override = false;
+opacity-rule = [
+    "80:class_g = 'Alacritty'",
+    "95:class_g = 'Thunderbird'",
+    "0:_NET_WM_STATE@:32a *= '_NET_WM_STATE_HIDDEN'"
+];
+
+# ==================== FADING ====================
+fading = true;
+fade-delta = 5;            # Time between steps in ms
+fade-in-step = 0.03;
+fade-out-step = 0.03;
+fade-exclude = [ ];
+
+# ==================== BLUR ====================
+# Only works with glx backend and experimental backends
+blur-method = "kawase";    # "none", "kawase", "dual_kawase", "box"
+blur-size = 8;
+blur-deviation = 5.0;
+blur-strength = 5;
+blur-exclude = [
+    "class_g = 'firefox'",
+    "window_type = 'dock'"
+];
+
+# ==================== CORNER ROUNDING ====================
+corner-radius = 8;          # Rounds window corners (glx only)
+rounded-corners-exclude = [
+    "class_g = 'firefox'",  # Firefox often has its own rounded corners
+    "window_type = 'tooltip'"
+];
+
+# ==================== WINDOW MATCHING RULES ====================
+detect-client-leader = true;
+detect-transient = true;
+detect-rounded-corners = true;
+
+# Exclude certain windows from compositing entirely
+unredir-if-possible = true;
+unredir-if-possible-exclude = [ ];
+
+# ==================== PERFORMANCE & MISCELLANEOUS ====================
+# Use damage tracking to reduce CPU/GPU usage
+use-damage = true;
+refresh-rate = 0;           # 0 = auto-detect
+dbe = false;                # Double buffer extension (rarely needed)
+
+# Swallow windows? (experimental)
+swallow = false;
+swallow-exceptions = [ ];
+
+# Logging
+log-level = "warn";         # "error", "warn", "info", "debug"
+
+# ==================== WRITE YOUR OWN RULES ====================
+# More complex rules (see `man picom`)
+# Example: don't shadow desktop icons or panels
+shadow-exclude = [
+    "class_g = 'Plank'",
+    "class_g = 'Docky'",
+    "name = 'Desktop'",
+    "window_type = 'dock'",
+    "window_type = 'desktop'"
+];
+
+# Example: force specific windows to be opaque
+opacity-rule = [
+    "100:class_g = 'Firefox' && focused",
+    "100:class_g = 'Vivaldi-stable'"
+];

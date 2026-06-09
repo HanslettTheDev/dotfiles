@@ -18,8 +18,9 @@ require("venom.plugins.live-server")
 require("venom.plugins.themes.cyberdream")
 require("venom.plugins.icons.nvim-web-devicons")
 require("venom.core.colorscheme")
+-- require("venom.core.custom-autocmds")
 
 -- set termguicolors to enable highlight groups
 -- vim.cmd([[ set background=dark ]])
-print("status: plugins sourced successfully")
+-- print("status: plugins sourced successfully")
 -- vim.cmd([[ let g:python_host_prog = 'C:/Users/DELL/AppData/Local/Programs/Python/Python310' ]])
