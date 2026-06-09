@@ -59,7 +59,7 @@ return require("packer").startup(function(use)
     use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
     use({
         "nvim-telescope/telescope.nvim",
-        tag = "0.1.3",
+        -- tag = "latest",
         requires = { { "nvim-lua/plenary.nvim" } },
     })
 
@@ -90,7 +90,9 @@ return require("packer").startup(function(use)
     use("fatih/vim-go")
 
     -- treesitter
-    use("nvim-treesitter/nvim-treesitter")
+    use(
+        { "nvim-treesitter/nvim-treesitter", branch = "master" }
+    )
 
     -- autoclose
     use("windwp/nvim-autopairs")
@@ -103,6 +105,8 @@ return require("packer").startup(function(use)
     use("adalessa/laravel.nvim")
     use("MunifTanjim/nui.nvim")
     use("kevinhwang91/promise-async")
+    use("nvim-neotest/nvim-nio")
+
 
     -- context commenting for multiple language buffers
     use("JoosepAlviste/nvim-ts-context-commentstring")
