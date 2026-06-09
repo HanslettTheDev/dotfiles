@@ -34,5 +34,5 @@ treesitter.setup({
         "comment",
         "dockerfile"
     },
-    -- auto_install = true,
+    auto_install = true,
 })
