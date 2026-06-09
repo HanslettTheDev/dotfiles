@@ -1,0 +1,26 @@
+[
+  {
+    "command": [
+      "/snap/alacritty/155/bin/alacritty"
+    ],
+    "working_directory": "/home/venom"
+  },
+  {
+    "command": [
+      "/snap/vlc/3777/usr/bin/vlc",
+      "--config=/home/venom/snap/vlc/common/vlcrc",
+      "/home/venom/Downloads/Telegram Desktop/1. Intro to Vue 3/VIdeos/1. Intro to Vue 3.mov",
+      "/home/venom/Downloads/Telegram Desktop/1. Intro to Vue 3/VIdeos/2. Creating the Vue App.mov",
+      "/home/venom/Downloads/Telegram Desktop/1. Intro to Vue 3/VIdeos/3. Attribute Binding.mp4",
+      "/home/venom/Downloads/Telegram Desktop/1. Intro to Vue 3/VIdeos/4. Conditional Rendering.mp4",
+      "/home/venom/Downloads/Telegram Desktop/1. Intro to Vue 3/VIdeos/5. List Rendering.mp4",
+      "/home/venom/Downloads/Telegram Desktop/1. Intro to Vue 3/VIdeos/6. Event Handling.mp4",
+      "/home/venom/Downloads/Telegram Desktop/1. Intro to Vue 3/VIdeos/7. Class & Style Binding.mp4",
+      "/home/venom/Downloads/Telegram Desktop/1. Intro to Vue 3/VIdeos/8. Computed Properties.mov",
+      "/home/venom/Downloads/Telegram Desktop/1. Intro to Vue 3/VIdeos/9. Components & Props.mov",
+      "/home/venom/Downloads/Telegram Desktop/1. Intro to Vue 3/VIdeos/10. Communicating Events.mp4",
+      "/home/venom/Downloads/Telegram Desktop/1. Intro to Vue 3/VIdeos/11. Forms & v-model.mov"
+    ],
+    "working_directory": "/home/venom"
+  }
+]

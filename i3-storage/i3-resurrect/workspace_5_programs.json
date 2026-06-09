@@ -1,7 +1,7 @@
 [
   {
     "command": [
-      "/snap/alacritty/155/bin/alacritty"
+      "/usr/bin/vlc"
     ],
     "working_directory": "/home/venom"
   }

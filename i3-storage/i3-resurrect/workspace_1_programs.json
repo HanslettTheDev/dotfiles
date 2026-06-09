@@ -9,12 +9,12 @@
     "command": [
       "gnome-terminal"
     ],
-    "working_directory": "/home/venom/.dotfiles"
+    "working_directory": "/home/venom"
   },
   {
     "command": [
-      "/snap/telegram-desktop/6899/usr/bin/telegram-desktop"
+      "/snap/telegram-desktop/6968/usr/bin/telegram-desktop"
     ],
-    "working_directory": "/home/venom/snap/telegram-desktop/6899/.local/share/TelegramDesktop"
+    "working_directory": "/home/venom/snap/telegram-desktop/6968/.local/share/TelegramDesktop"
   }
 ]

@@ -16,5 +16,5 @@ bindings = [
 title = "VENOM - Terminal"
 dynamic_title = true
 startup_mode = "Maximized"
-
+opacity = 0.8
 

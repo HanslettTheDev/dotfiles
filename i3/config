@@ -37,6 +37,12 @@ exec --no-startup-id nm-applet
 # Start pulseaudio as a daemon
 exec --no-startup-id pulseaudio --daemon
 
+# Start nitrogen to setup my background image
+exec_always --no-startup-id nitrogen --restore
+
+# Use picom to enable true transparency
+exec_always --no-startup-id picom -b
+
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -154,7 +160,7 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $mod+Shift+o reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)

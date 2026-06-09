@@ -2,7 +2,7 @@
   "border": "normal",
   "current_border_width": -1,
   "floating": "auto_off",
-  "fullscreen_mode": 0,
+  "fullscreen_mode": 1,
   "geometry": {
     "x": 0,
     "y": 0,
@@ -13,12 +13,39 @@
   "marks": [],
   "name": "1",
   "orientation": "horizontal",
-  "percent": 0.3333333333333333,
+  "percent": 0.5,
   "scratchpad_state": "none",
   "sticky": false,
   "type": "workspace",
   "workspace_layout": "default",
   "nodes": [
+    {
+      "border": "normal",
+      "current_border_width": 2,
+      "floating": "auto_off",
+      "fullscreen_mode": 0,
+      "geometry": {
+        "x": 2,
+        "y": 18,
+        "width": 1346,
+        "height": 1041
+      },
+      "layout": "splith",
+      "marks": [],
+      "name": "www.youtube.com - Google Chrome",
+      "orientation": "none",
+      "percent": 0.7,
+      "scratchpad_state": "none",
+      "sticky": false,
+      "type": "con",
+      "workspace_layout": "default",
+      "swallows": [
+        {
+          "class": "^Google\\-chrome$",
+          "instance": "^google\\-chrome$"
+        }
+      ]
+    },
     {
       "border": "normal",
       "current_border_width": -1,
@@ -30,11 +57,11 @@
         "width": 0,
         "height": 0
       },
-      "layout": "splith",
+      "layout": "splitv",
       "marks": [],
       "name": null,
-      "orientation": "horizontal",
-      "percent": 1.0,
+      "orientation": "vertical",
+      "percent": 0.30000000000000004,
       "scratchpad_state": "none",
       "sticky": false,
       "type": "con",
@@ -46,101 +73,51 @@
           "floating": "auto_off",
           "fullscreen_mode": 0,
           "geometry": {
-            "x": 2,
-            "y": 36,
-            "width": 1916,
-            "height": 1023
+            "x": 0,
+            "y": 0,
+            "width": 734,
+            "height": 629
           },
           "layout": "splith",
           "marks": [],
-          "name": "(13) WhatsApp - Google Chrome",
+          "name": "Terminal",
           "orientation": "none",
-          "percent": 0.7036036036036035,
+          "percent": 0.5,
           "scratchpad_state": "none",
           "sticky": false,
           "type": "con",
           "workspace_layout": "default",
           "swallows": [
             {
-              "class": "^Google\\-chrome$",
-              "instance": "^google\\-chrome$"
+              "class": "^Gnome\\-terminal$",
+              "instance": "^gnome\\-terminal\\-server$"
             }
           ]
         },
         {
           "border": "normal",
-          "current_border_width": -1,
+          "current_border_width": 2,
           "floating": "auto_off",
           "fullscreen_mode": 0,
           "geometry": {
-            "x": 0,
-            "y": 0,
-            "width": 0,
-            "height": 0
+            "x": 2,
+            "y": 548,
+            "width": 1916,
+            "height": 511
           },
-          "layout": "splitv",
+          "layout": "splith",
           "marks": [],
-          "name": null,
-          "orientation": "vertical",
-          "percent": 0.2963963963963965,
+          "name": "Telegram",
+          "orientation": "none",
+          "percent": 0.5,
           "scratchpad_state": "none",
           "sticky": false,
           "type": "con",
           "workspace_layout": "default",
-          "nodes": [
+          "swallows": [
             {
-              "border": "normal",
-              "current_border_width": 2,
-              "floating": "auto_off",
-              "fullscreen_mode": 0,
-              "geometry": {
-                "x": 0,
-                "y": 0,
-                "width": 734,
-                "height": 629
-              },
-              "layout": "splith",
-              "marks": [],
-              "name": "Terminal",
-              "orientation": "none",
-              "percent": 0.5,
-              "scratchpad_state": "none",
-              "sticky": false,
-              "type": "con",
-              "workspace_layout": "default",
-              "swallows": [
-                {
-                  "class": "^Gnome\\-terminal$",
-                  "instance": "^gnome\\-terminal\\-server$"
-                }
-              ]
-            },
-            {
-              "border": "normal",
-              "current_border_width": 2,
-              "floating": "auto_off",
-              "fullscreen_mode": 0,
-              "geometry": {
-                "x": 1453,
-                "y": 548,
-                "width": 465,
-                "height": 511
-              },
-              "layout": "splith",
-              "marks": [],
-              "name": "\u200e\u2068General\u2069 \u2013 (11)",
-              "orientation": "none",
-              "percent": 0.5,
-              "scratchpad_state": "none",
-              "sticky": false,
-              "type": "con",
-              "workspace_layout": "default",
-              "swallows": [
-                {
-                  "class": "^TelegramDesktop$",
-                  "instance": "^telegram\\-desktop$"
-                }
-              ]
+              "class": "^TelegramDesktop$",
+              "instance": "^telegram\\-desktop$"
             }
           ]
         }
