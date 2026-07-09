@@ -1,7 +1,6 @@
 # Ensure the following is installed
 git
 curl
-unzip
 wget
 snap
 
@@ -21,6 +20,10 @@ sudo apt install i3
 
 ## Terminal stuff
 
+# fonts
+chmod +x font_install.sh
+./font_install.sh
+
 # starship
 curl -sS https://starship.rs/install.sh | sh
 
@@ -28,7 +31,7 @@ curl -sS https://starship.rs/install.sh | sh
 
 ### build tools for neovim
 sudo apt-get install ninja-build gettext cmake curl build-essential git
-sudo apt install ripgrep
+sudo apt install ripgrep npm python3-pip unzip
 git clone https://github.com/neovim/neovim
 cd neovim
 git checkout v0.11.7
