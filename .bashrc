@@ -141,7 +141,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export PATH="$HOME/zig-x86_64-linux-0.16.0-dev.747+493ad58ff:$PATH"
 
-. "$HOME/.local/share/../bin/env"
 
-# Generated for envman. Do not edit.
-[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+source ~/.bash_completion/alacritty
+# . "$HOME/.local/share/../bin/env"
