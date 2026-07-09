@@ -16,7 +16,12 @@ sudo apt-get install -y ./google-chrome-stable_current_amd64.deb
 sudo apt-get update
 
 ## i3wm stuff
-sudo apt install i3
+sudo apt install i3 xdotool
+
+## i3resurrect
+git clone git@github.com:JonnyHaystack/i3-resurrect.git
+cd i3-resurrect
+pip3 install --user . --break-system-packages
 
 ## Terminal stuff
 
