@@ -1,8 +1,0 @@
-[
-  {
-    "command": [
-      "/usr/bin/vlc"
-    ],
-    "working_directory": "/home/venom"
-  }
-]

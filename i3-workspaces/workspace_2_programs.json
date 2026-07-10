@@ -1,8 +1,0 @@
-[
-  {
-    "command": [
-      "/snap/alacritty/155/bin/alacritty"
-    ],
-    "working_directory": "/home/venom"
-  }
-]

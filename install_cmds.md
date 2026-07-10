@@ -32,6 +32,12 @@ chmod +x font_install.sh
 # starship
 curl -sS https://starship.rs/install.sh | sh
 
+# tmux
+sudo apt install tmux
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+**// before running this command, ensure tmux is running**
+tmux source ~/.tmux.conf
+
 # Neovim installation
 
 ### build tools for neovim
