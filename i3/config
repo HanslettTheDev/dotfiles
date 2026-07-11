@@ -202,8 +202,8 @@ bar {
 
 # ___ CUSTOM SETTINGS __
 
-# Always start my screen on monitor 2 and switch off internal monitor
-exec --no-startup-id xrandr --output DP-3 --auto --primary --output eDP-1 --off
+# Always start my screen on monitor 2 and switch off internal monitor (I disabled this line because it's on a one monitor)
+# exec --no-startup-id xrandr --output DP-3 --auto --primary --output eDP-1 --off
 
 # Setup i3-resurrect
 set $i3_resurrect i3-resurrect
@@ -234,8 +234,8 @@ mode "save" {
   # Back to normal: Enter, Escape, or s
   bindsym Return mode "default"
   bindsym Escape mode "default"
-  bindsym s mode "default"
-  bindsym $mod+s mode "default"
+  bindsym b mode "default"
+  bindsym $mod+b mode "default"
 }
 
 bindsym $mod+b mode "save"

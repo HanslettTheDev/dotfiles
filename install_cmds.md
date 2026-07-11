@@ -14,9 +14,13 @@ sudo snap install telegram-desktop
 curl -LO https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo apt-get install -y ./google-chrome-stable_current_amd64.deb
 sudo apt-get update
+**// for any issues when opening chrome on ubuntu 24.04 and above in i3, run this command**
+cp /usr/share/applications/google-chrome.desktop ~/.local/share/applications/
+**// then edit each file manually to add this line anywhere you see `Exec` before %U**
+--ozone-platform=x11
 
 ## i3wm stuff
-sudo apt install i3 xdotool
+sudo apt install i3 xdotool maim xclip
 
 ## i3resurrect
 git clone git@github.com:JonnyHaystack/i3-resurrect.git
