@@ -123,24 +123,26 @@ eval "$(starship init bash)"
 # Set up fzf key bindings and fuzzy completion
 # eval "$(fzf)"
 
-#
 # Set up my bash_aliases
 if [ -f ~/.bash_aliases ]; then
 . ~/.bash_aliases
 fi
 
-export PATH=/home/venom/go/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/usr/local/go/bin
+# PATH VARIABLES
+BASE_PATH="/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
 
-export PATH="/home/venom/.config/herd-lite/bin:$PATH"
+export PATH="$BASE_PATH"
 
-export PATH="$HOME/.local/bin/:$PATH"
+export PATH="$HOME/go/bin:$PATH"                    # Go workspace
+export PATH="$HOME/.config/herd-lite/bin:$PATH"    # Herd-Lite
+export PATH="$HOME/.local/bin:$PATH"               # User Python packages 
+
+# PHP
 export PHP_INI_SCAN_DIR="/home/venom/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
 
+# nvm(node version manager)
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-export PATH="$HOME/zig-x86_64-linux-0.16.0-dev.747+493ad58ff:$PATH"
-
 
 source ~/.bash_completion/alacritty
-# . "$HOME/.local/share/../bin/env"
