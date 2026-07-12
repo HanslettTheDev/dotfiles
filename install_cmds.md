@@ -58,7 +58,8 @@ uv python install 3.12
 
 ### build tools for neovim
 sudo apt-get install ninja-build gettext cmake curl build-essential git
-sudo apt install ripgrep python3-pip unzip
+sudo apt install ripgrep python3-pip unzip fd-find
+pip3 install neovim --break-system-packages
 git clone https://github.com/neovim/neovim
 cd neovim
 git checkout v0.11.7
