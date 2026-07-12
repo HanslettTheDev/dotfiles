@@ -1,0 +1,9 @@
+[
+  {
+    "command": [
+      "/snap/bruno/112/bruno",
+      "--no-sandbox"
+    ],
+    "working_directory": "/home/venom"
+  }
+]

@@ -145,4 +145,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# uv(from astra)
+eval "$(uv generate-shell-completion bash)"
+
 source ~/.bash_completion/alacritty
+
+. "$HOME/.cargo/env"

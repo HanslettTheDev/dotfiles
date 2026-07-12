@@ -3,6 +3,9 @@ git
 curl
 wget
 snap
+python3-pip
+vim
+fzf
 
 # Run this first
 sudo apt-get update 
@@ -29,6 +32,9 @@ pip3 install --user . --break-system-packages
 
 ## Terminal stuff
 
+# Installing nvm(node version manager) it will handle node and npm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.5/install.sh | bash
+
 # fonts
 chmod +x font_install.sh
 ./font_install.sh
@@ -42,11 +48,17 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 **// before running this command, ensure tmux is running**
 tmux source ~/.tmux.conf
 
+# uv installation
+
+curl -LsSf https://astral.sh/uv/install.sh | sh
+echo 'eval "$(uv generate-shell-completion bash)"' >> ~/.bashrc
+uv python install 3.12
+
 # Neovim installation
 
 ### build tools for neovim
 sudo apt-get install ninja-build gettext cmake curl build-essential git
-sudo apt install ripgrep npm python3-pip unzip
+sudo apt install ripgrep python3-pip unzip
 git clone https://github.com/neovim/neovim
 cd neovim
 git checkout v0.11.7
@@ -87,4 +99,4 @@ scdoc < extra/man/alacritty-escapes.7.scd | gzip -c | sudo tee /usr/local/share/
 mkdir -p ~/.bash_completion
 cp extra/completions/alacritty.bash ~/.bash_completion/alacritty
 
-
+# set background image
