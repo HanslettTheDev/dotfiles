@@ -146,7 +146,6 @@ function terminal_configuration() {
 	# install nerd fonts
 	echo "[=] Installing Nerd Fonts"
 	"$HOME/dotfiles/font_install.sh"
-	echo "[✓] Nerd fonts installed"
 
 	# install starship
 	echo "[=] installing starship"
@@ -304,6 +303,13 @@ function bash_config() {
 	source "$HOME/.bashrc"
 	set -eu
 	echo "[✓] .bashrc and .bash_aliases setup complete"
+}
+
+# Clean Up residual files
+function clean_up() {
+	echo "[=] Removing neovim, alacritty and i3-resurrect files"
+	rm -rf "$HOME/neovim" "$HOME/alacritty" "$HOME/i3-resurrect"
+	echo "[✓] clean up complete"
 }
 
 # Command Flow Setup
