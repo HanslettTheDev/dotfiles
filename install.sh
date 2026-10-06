@@ -269,9 +269,9 @@ function bash_config() {
 	echo "[✓] .bashrc and .bash_aliases setup complete"
 }
 
-function clean_up() {
-	# soon bruh
-}
+# function clean_up() {
+# 	# soon bruh
+# }
 
 # Command Flow Setup
 install_required_tools()
