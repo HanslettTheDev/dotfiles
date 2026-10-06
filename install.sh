@@ -126,7 +126,7 @@ function terminal_configuration() {
 
 	# install nerd fonts
 	echo "[=] Installing Nerd Fonts"
-	"./$HOME/dotfiles/font_install.sh"
+	"$HOME/dotfiles/font_install.sh"
 	echo "[✓] Nerd fonts installed"
 
 	# install starship
@@ -262,7 +262,7 @@ function bash_config() {
 	echo "[=] Setup .bashrc and .bash_aliases"
 	[ -f "$HOME/.bashrc" ] && mv "$HOME/.bashrc" "$HOME/.bashrc.bak"
 	[ -f "$HOME/.bash_aliases" ] && mv "$HOME/.bash_aliases" "$HOME/.bash_aliases.bak"
-
+git
 	# create symlink
 	ln -snfv "$HOME/dotfiles/.bashrc" "$HOME/.bashrc"
 	ln -snfv "$HOME/dotfiles/.bash_aliases" "$HOME/.bash_aliases"
