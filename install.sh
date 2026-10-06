@@ -58,7 +58,7 @@ function git_clone() {
 		return 1
 	else 
 		git clone "$url" "$dest"
-
+	fi
 }
 
 # Ensure required apps are installed before running the install script
@@ -102,7 +102,7 @@ function install_utility_apps() {
 		echo "[✓] chrome installed"
 	else
 		echo "[✓] chrome already installed"
-
+	fi
 	# firefox
 	echo "[=] Updating firefox"
 	$SUDO snap refresh firefox
