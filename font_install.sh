@@ -58,9 +58,9 @@ for font in "${fonts[@]}"; do
   zip_file="${font}.zip"
   download_url="https://github.com/ryanoasis/nerd-fonts/releases/download/${version}/${zip_file}"
   echo "Downloading $download_url"
-  wget "$download_url"
-  unzip -o "$zip_file" -d "$fonts_dir"  # Added the -o option here to allow replacing
-  rm "$zip_file"
+  wget -q -O "/tmp/$zip_file" "$download_url"
+  unzip -o "/tmp/$zip_file" -d "$fonts_dir"  # Added the -o option here to allow replacing
+  rm "/tmp/$zip_file"
 done
 
 find "$fonts_dir" -name 'Windows Compatible' -delete
