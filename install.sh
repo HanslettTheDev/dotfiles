@@ -80,7 +80,7 @@ function install_required_tools() {
 # Clone my dotfiles repository
 function fetch_dotfiles_repository() {
 	echo "[=] Cloning dotfiles repository"
-	git_clone https://github.com/HanslettTheDev/dotfiles.git "$HOME/dotfiles"
+	git_clone https://github.com/HanslettTheDev/dotfiles.git "$HOME/.dotfiles"
 	echo "[✓] Repository cloned!"
 }
 
@@ -315,13 +315,8 @@ function clean_up() {
 	rm -rf "$HOME/neovim" "$HOME/alacritty" "$HOME/i3-resurrect"
 	echo "[✓] clean up complete"
 
-	echo "[=] Clone dotfiles to .dotfiles for version control"
-	git_clone https://github.com/HanslettTheDev/dotfiles.git "$HOME/.dotfiles"
-	echo "[✓] Clone successful"
-
-	echo "[=] Remove dotfiles directory"
-	rm -rf "$HOME/dotfiles"
-	echo "[✓] dotfiles folder removed successfully"
+	echo "[=] auto remove packages"
+	$SUDO apt-get auto-remove -y
 
 	echo "[✓] Clean Up Complete"
 }
