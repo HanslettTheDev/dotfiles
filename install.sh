@@ -310,6 +310,16 @@ function clean_up() {
 	echo "[=] Removing neovim, alacritty and i3-resurrect files"
 	rm -rf "$HOME/neovim" "$HOME/alacritty" "$HOME/i3-resurrect"
 	echo "[✓] clean up complete"
+
+	echo "[=] Clone dotfiles to .dotfiles for version control"
+	git_clone https://github.com/HanslettTheDev/dotfiles.git "$HOME/.dotfiles"
+	echo "[✓] Clone successful"
+
+	echo "[=] Remove dotfiles directory"
+	rm -rf "$HOME/dotfiles"
+	echo "[✓] dotfiles folder removed successfully"
+
+	echo "[✓] Clean Up Complete"
 }
 
 # Command Flow Setup
@@ -332,6 +342,8 @@ install_uv
 install_nvm
 
 bash_config
+
+clean_up
 
 echo "=========================="
 echo "[✓] Installation Complete"
