@@ -272,20 +272,20 @@ function bash_config() {
 # Command Flow Setup
 install_required_tools()
 
-fetch_dotfiles_repository()
+# fetch_dotfiles_repository()
 
-install_utility_apps()
+# install_utility_apps()
 
-terminal_configuration()
+# terminal_configuration()
 
-install_i3wm()
+# install_i3wm()
 
-install_neovim()
+# install_neovim()
 
-install_alacritty()
+# install_alacritty()
 
-install_uv()
+# install_uv()
 
-install_nvm()
+# install_nvm()
 
-bash_config()
+# bash_config()
