@@ -125,7 +125,7 @@ function terminal_configuration() {
 
 	# install nerd fonts
 	echo "[=] Installing Nerd Fonts"
-	"$HOME/dotfiles/font_install.sh"
+	"./$HOME/dotfiles/font_install.sh"
 	echo "[✓] Nerd fonts installed"
 
 	# install starship
