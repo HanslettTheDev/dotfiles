@@ -35,6 +35,7 @@ gettext
 ripgrep
 unzip
 fd-find
+cmake
 )
 
 # create the config dir
@@ -109,9 +110,9 @@ function install_i3wm() {
 	
 	# configuring i3 and i3-resurrect
 	echo "[=] configuring i3wm and i3-resurrect"
-	ln -sv "$HOME/dotfiles/i3" "$HOME/.config/i3"
-	ln -sv "$HOME/dotfiles/i3-resurrect" "$HOME/.config/i3-resurrect"
-	ln -sv "$HOME/dotfiles/i3-workspaces" "$HOME/.config/i3-workspaces"
+	ln -sfnv "$HOME/dotfiles/i3" "$HOME/.config/i3"
+	ln -sfnv "$HOME/dotfiles/i3-resurrect" "$HOME/.config/i3-resurrect"
+	ln -sfnv "$HOME/dotfiles/i3-workspaces" "$HOME/.config/i3-workspaces"
 	echo "[✓] i3 and i3-resurrect successfully configured"
 
 
@@ -135,18 +136,18 @@ function terminal_configuration() {
 
 	# configure starship
 	echo "[=] Configuring starship"
-	ln -sv "$HOME/dotfiles/starship.toml" "$HOME/.config/starship.toml"
+	ln -snfv "$HOME/dotfiles/starship.toml" "$HOME/.config/starship.toml"
 	echo "[✓] Configuration complete"
 
 	# copy git config
 	echo "[=] Setting up .gitconfig"
-	ln -sv "$HOME/dotfiles/.gitconfig" "$HOME/.gitconfig"
+	ln -snfv "$HOME/dotfiles/.gitconfig" "$HOME/.gitconfig"
 	echo "[✓] .gitconfig setup complete"
 
 	# configure tmux
 	echo "[=] Setup tmux"
 
-	ln -sfv "$HOME/dotfiles/.tmux.conf" "$HOME/.tmux.conf"
+	ln -snfv "$HOME/dotfiles/.tmux.conf" "$HOME/.tmux.conf"
 
 	TPM_DIR="$HOME/.config/tmux/plugins/tpm"
 	git clone https://github.com/tmux-plugins/tpm "$TPM_DIR"
@@ -192,7 +193,7 @@ function install_neovim() {
 	
 	echo "[=] setting up neovim config"
 	# set neovim config
-	ln -sv "$HOME/dotfiles/nvim" "$HOME/.config/nvim"
+	ln -snfv "$HOME/dotfiles/nvim" "$HOME/.config/nvim"
 	echo "[✓] neovim config setup complete"
 
 	echo "[✓] neovim installed"
@@ -233,7 +234,7 @@ function install_alacritty() {
 	cp extra/completions/alacritty.bash ~/.bash_completion/alacritty
 
 	echo "[=] setting up alacritty config"
-	ln -sv "$HOME/dotfiles/alacritty" "$HOME/.config/alacritty"
+	ln -snfv "$HOME/dotfiles/alacritty" "$HOME/.config/alacritty"
 	echo "[✓] alacritty config setup successfully"
 
 	echo "[✓] alacritty installed"
@@ -263,11 +264,11 @@ function bash_config() {
 	[ -f "$HOME/.bash_aliases" ] && mv "$HOME/.bash_aliases" "$HOME/.bash_aliases.bak"
 
 	# create symlink
-	ln -sfv "$HOME/dotfiles/.bashrc" "$HOME/.bashrc"
-	ln -sfv "$HOME/dotfiles/.bash_aliases" "$HOME/.bash_aliases"
+	ln -snfv "$HOME/dotfiles/.bashrc" "$HOME/.bashrc"
+	ln -snfv "$HOME/dotfiles/.bash_aliases" "$HOME/.bash_aliases"
 
 	# source the config
-	source "$HOME/.bashrc"
+	# source "$HOME/.bashrc"
 	echo "[✓] .bashrc and .bash_aliases setup complete"
 }
 
