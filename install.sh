@@ -203,19 +203,22 @@ function terminal_configuration() {
 # INSTALL DEV TOOLS
 function install_neovim() {
 	echo "[=] installing neovim"
-	pip3 install neovim --break-system-packages
-	git_clone https://github.com/neovim/neovim "$HOME/neovim"
-	cd "$HOME/neovim"
-	git checkout v0.11.7
-	make CMAKE_BUILD_TYPE=RelWithDebInfo
-	$SUDO make install
-	
+	if ! command_exist nvim; then
+		pip3 install neovim --break-system-packages
+		git_clone https://github.com/neovim/neovim "$HOME/neovim"
+		cd "$HOME/neovim"
+		git checkout v0.11.7
+		make CMAKE_BUILD_TYPE=RelWithDebInfo
+		$SUDO make install
+		echo "[✓] neovim installed"
+	else
+		echo "neovim is already installed"
+	fi
+		
 	echo "[=] setting up neovim config"
 	# set neovim config
 	ln -snfv "$HOME/dotfiles/nvim" "$HOME/.config/nvim"
 	echo "[✓] neovim config setup complete"
-
-	echo "[✓] neovim installed"
 }
 
 function install_alacritty() {
@@ -223,7 +226,9 @@ function install_alacritty() {
 	git_clone https://github.com/alacritty/alacritty.git "$HOME/alacritty"
 	cd "$HOME/alacritty"
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-
+	set +eu
+	source "$HOME/.bashrc"
+	set -eu
 	# **// ensure I have the right rust compiler**
 	rustup override set stable
 	rustup update stable
