@@ -22,6 +22,25 @@ declare -a fonts=(
   # UbuntuMono
 )
 
+# TODO: this function won't check properly for other Nerd font family
+function font_installed() {
+  fc-list : family | grep -qi "$1 Nerd Font"
+}
+
+to_install=()
+for font in "${fonts[@]}"; do
+  if font_installed "$font"; then
+    echo "[=] $font already installed, skipping"
+  else
+    to_install+=("$font")
+  fi
+done
+
+if [ "${#to_install[@]}" -eq 0 ]; then
+  echo echo "[✓] All fonts already installed"
+  exit 0
+fi
+
 version=$(curl -s 'https://api.github.com/repos/ryanoasis/nerd-fonts/releases/latest' | jq -r '.name')
 if [ -z "$version" ] || [ "$version" = "null" ]; then
   version="v3.2.1"

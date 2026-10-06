@@ -52,7 +52,7 @@ function dir_exists() {
 function git_clone() {
 	local url=$1 dest=$2
 	if [ -d "$dest/.git" ]; then
-		echo "[=] $dest already cloned, skipping"]
+		echo "[=] $dest already cloned, skipping"
 	elif [ -e "$dest" ]; then
 		echo "[!] $dest exists but is not a git repo" >&2
 		return 1
@@ -202,8 +202,8 @@ function terminal_configuration() {
 
 # INSTALL DEV TOOLS
 function install_neovim() {
-	echo "[=] installing neovim"
 	if ! command_exist nvim; then
+		echo "[=] installing neovim"
 		pip3 install neovim --break-system-packages
 		git_clone https://github.com/neovim/neovim "$HOME/neovim"
 		cd "$HOME/neovim"
@@ -212,7 +212,7 @@ function install_neovim() {
 		$SUDO make install
 		echo "[✓] neovim installed"
 	else
-		echo "neovim is already installed"
+		echo "[!] neovim is already installed"
 	fi
 		
 	echo "[=] setting up neovim config"
@@ -222,46 +222,49 @@ function install_neovim() {
 }
 
 function install_alacritty() {
-	echo "[=] installing alacritty"
-	git_clone https://github.com/alacritty/alacritty.git "$HOME/alacritty"
-	cd "$HOME/alacritty"
-	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-	set +eu
-	source "$HOME/.bashrc"
-	set -eu
-	# **// ensure I have the right rust compiler**
-	rustup override set stable
-	rustup update stable
-	# **// Source this config to ensure rustup is available for use**
-	source $HOME/.bashrc
-	# **// dependencies to build alacritty**
-	$SUDO apt-get install -y cmake g++ pkg-config libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3 gzip scdoc
-	cargo build --release
-	$SUDO tic -xe alacritty,alacritty-direct extra/alacritty.info
-	infocmp alacritty
-	# **// Add alacritty desktop icon for wayland**
-	$SUDO cp target/release/alacritty /usr/local/bin # or anywhere else in $PATH
-	$SUDO cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
-	$SUDO desktop-file-install extra/linux/Alacritty.desktop
-	$SUDO update-desktop-database
-	# **// setting up the man page**
-	$SUDO mkdir -p /usr/local/share/man/man1
-	$SUDO mkdir -p /usr/local/share/man/man5
-	$SUDO mkdir -p /usr/local/share/man/man7
-	scdoc < extra/man/alacritty.1.scd | gzip -c | $SUDO tee /usr/local/share/man/man1/alacritty.1.gz > /dev/null
-	scdoc < extra/man/alacritty-msg.1.scd | gzip -c | $SUDO tee /usr/local/share/man/man1/alacritty-msg.1.gz > /dev/null
-	scdoc < extra/man/alacritty.5.scd | gzip -c | $SUDO tee /usr/local/share/man/man5/alacritty.5.gz > /dev/null
-	scdoc < extra/man/alacritty-bindings.5.scd | gzip -c | $SUDO tee /usr/local/share/man/man5/alacritty-bindings.5.gz > /dev/null
-	scdoc < extra/man/alacritty-escapes.7.scd | gzip -c | $SUDO tee /usr/local/share/man/man7/alacritty-escapes.7.gz > /dev/null
-	# **// Add shell completion(I choose these commands since I plan to delete the alacritty source directory after installation)**
-	mkdir -p ~/.bash_completion
-	cp extra/completions/alacritty.bash ~/.bash_completion/alacritty
+	if ! command_exist alacritty; then
+		echo "[=] installing alacritty"
+		git_clone https://github.com/alacritty/alacritty.git "$HOME/alacritty"
+		cd "$HOME/alacritty"
+		curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+		set +eu
+		source "$HOME/.bashrc"
+		set -eu
+		# **// ensure I have the right rust compiler**
+		rustup override set stable
+		rustup update stable
+		# **// Source this config to ensure rustup is available for use**
+		source $HOME/.bashrc
+		# **// dependencies to build alacritty**
+		$SUDO apt-get install -y cmake g++ pkg-config libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3 gzip scdoc
+		cargo build --release
+		$SUDO tic -xe alacritty,alacritty-direct extra/alacritty.info
+		infocmp alacritty
+		# **// Add alacritty desktop icon for wayland**
+		$SUDO cp target/release/alacritty /usr/local/bin # or anywhere else in $PATH
+		$SUDO cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
+		$SUDO desktop-file-install extra/linux/Alacritty.desktop
+		$SUDO update-desktop-database
+		# **// setting up the man page**
+		$SUDO mkdir -p /usr/local/share/man/man1
+		$SUDO mkdir -p /usr/local/share/man/man5
+		$SUDO mkdir -p /usr/local/share/man/man7
+		scdoc < extra/man/alacritty.1.scd | gzip -c | $SUDO tee /usr/local/share/man/man1/alacritty.1.gz > /dev/null
+		scdoc < extra/man/alacritty-msg.1.scd | gzip -c | $SUDO tee /usr/local/share/man/man1/alacritty-msg.1.gz > /dev/null
+		scdoc < extra/man/alacritty.5.scd | gzip -c | $SUDO tee /usr/local/share/man/man5/alacritty.5.gz > /dev/null
+		scdoc < extra/man/alacritty-bindings.5.scd | gzip -c | $SUDO tee /usr/local/share/man/man5/alacritty-bindings.5.gz > /dev/null
+		scdoc < extra/man/alacritty-escapes.7.scd | gzip -c | $SUDO tee /usr/local/share/man/man7/alacritty-escapes.7.gz > /dev/null
+		# **// Add shell completion(I choose these commands since I plan to delete the alacritty source directory after installation)**
+		mkdir -p ~/.bash_completion
+		cp extra/completions/alacritty.bash ~/.bash_completion/alacritty
+		echo "[✓] alacritty installed"
+	else 
+		echo "[!] neovim is already installed"
+	fi
 
 	echo "[=] setting up alacritty config"
 	ln -snfv "$HOME/dotfiles/alacritty" "$HOME/.config/alacritty"
 	echo "[✓] alacritty config setup successfully"
-
-	echo "[✓] alacritty installed"
 }
 
 
@@ -269,15 +272,20 @@ function install_alacritty() {
 # Other DEV tools
 # uv installation
 function install_uv() {
-	echo "[=] installing uv"
-	curl -LsSf https://astral.sh/uv/install.sh | sh
-	echo "[✓] uv installed"
+	if ! command_exist uv; then
+		echo "[=] installing uv"
+		curl -LsSf https://astral.sh/uv/install.sh | sh
+		echo "[✓] uv installed"
+	fi
 } 
+
 # nvm installation
 function install_nvm() {
-	echo "[=] installing nvm"
-	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.5/install.sh | bash
-	echo "[✓] nvm installed"
+	if ! command_exist nvm; then
+		echo "[=] installing nvm"
+		curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.5/install.sh | bash
+		echo "[✓] nvm installed"
+	fi
 }
 
 # Setup bashrc files 
@@ -286,13 +294,15 @@ function bash_config() {
 	echo "[=] Setup .bashrc and .bash_aliases"
 	[ -f "$HOME/.bashrc" ] && mv "$HOME/.bashrc" "$HOME/.bashrc.bak"
 	[ -f "$HOME/.bash_aliases" ] && mv "$HOME/.bash_aliases" "$HOME/.bash_aliases.bak"
-git
+	
 	# create symlink
 	ln -snfv "$HOME/dotfiles/.bashrc" "$HOME/.bashrc"
 	ln -snfv "$HOME/dotfiles/.bash_aliases" "$HOME/.bash_aliases"
 
 	# source the config
-	# source "$HOME/.bashrc"
+	set +eu
+	source "$HOME/.bashrc"
+	set -eu
 	echo "[✓] .bashrc and .bash_aliases setup complete"
 }
 
@@ -316,3 +326,7 @@ install_uv
 install_nvm
 
 bash_config
+
+echo "=========================="
+echo "[✓] Installation Complete"
+echo "=========================="
