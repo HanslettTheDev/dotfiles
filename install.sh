@@ -37,9 +37,11 @@ unzip
 fd-find
 )
 
+# create the config dir
+mkdir -p "$HOME/.config"
+
 function command_exist() {
-	command=$1
-	return $(type $command &>/dev/null; echo $?)
+	type "$1" &>/dev/null
 }
 
 # Ensure required apps are installed before running the install script
@@ -51,9 +53,9 @@ function install_required_tools() {
 
 	for pkg in "${PACKAGES[@]}"; do
 		if ! dpkg -s "$pkg" >/dev/null 2>&1; then
-			echo "[=] $pkg already installed"
-		else
 			echo "[✓] $pkg installed"
+		else
+			echo "[=] $pkg already installed"
 		fi
 	done
 }
@@ -76,8 +78,8 @@ function install_utility_apps() {
 
 	# chrome
 	echo "[=] installing Chrome"
-	curl -LO https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-	$SUDO apt-get install -y ./google-chrome-stable_current_amd64.deb
+	curl -fL -o /tmp/google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+	$SUDO apt-get install -y /tmp/google-chrome.deb
 	$SUDO apt-get update
 	echo "[✓] chrome installed"
 
@@ -101,13 +103,13 @@ function install_i3wm() {
 	# installing i3-resurrect and configuration
 	echo "[=] installing i3-resurrect"
 	git clone https://github.com/JonnyHaystack/i3-resurrect.git "$HOME/i3-resurrect"
-	cd i3-resurrect
+	cd "$HOME/i3-resurrect"
 	pip3 install --user . --break-system-packages
 	echo "[✓] i3-resurrect installed"
 	
 	# configuring i3 and i3-resurrect
 	echo "[=] configuring i3wm and i3-resurrect"
-	ln -sv "$HOME/dotfiles/i3" "$HOME/.config/i3-resurrect"
+	ln -sv "$HOME/dotfiles/i3" "$HOME/.config/i3"
 	ln -sv "$HOME/dotfiles/i3-resurrect" "$HOME/.config/i3-resurrect"
 	ln -sv "$HOME/dotfiles/i3-workspaces" "$HOME/.config/i3-workspaces"
 	echo "[✓] i3 and i3-resurrect successfully configured"
@@ -128,7 +130,7 @@ function terminal_configuration() {
 
 	# install starship
 	echo "[=] installing starship"
-	curl -sS https://starship.rs/install.sh | sh
+	curl -sS https://starship.rs/install.sh | sh -s -- -y
 	echo "[✓] starship installed"
 
 	# configure starship
@@ -183,7 +185,7 @@ function install_neovim() {
 	echo "[=] installing neovim"
 	pip3 install neovim --break-system-packages
 	git clone https://github.com/neovim/neovim "$HOME/neovim"
-	cd neovim
+	cd "$HOME/neovim"
 	git checkout v0.11.7
 	make CMAKE_BUILD_TYPE=RelWithDebInfo
 	$SUDO make install
@@ -199,8 +201,8 @@ function install_neovim() {
 function install_alacritty() {
 	echo "[=] installing alacritty"
 	git clone https://github.com/alacritty/alacritty.git "$HOME/alacritty"
-	cd alacritty
-	curl --proto '=https' --tlsv1.2 -sSf https://sh
+	cd "$HOME/alacritty"
+	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
 	# **// ensure I have the right rust compiler**
 	rustup override set stable
@@ -270,22 +272,22 @@ function bash_config() {
 }
 
 # Command Flow Setup
-install_required_tools()
+install_required_tools
 
-# fetch_dotfiles_repository()
+fetch_dotfiles_repository
 
-# install_utility_apps()
+install_utility_apps
 
-# terminal_configuration()
+terminal_configuration
 
-# install_i3wm()
+install_i3wm
 
-# install_neovim()
+install_neovim
 
-# install_alacritty()
+install_alacritty
 
-# install_uv()
+install_uv
 
-# install_nvm()
+install_nvm
 
-# bash_config()
+bash_config
