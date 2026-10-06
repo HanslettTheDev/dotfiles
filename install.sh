@@ -147,15 +147,19 @@ function terminal_configuration() {
 	echo "[=] Installing Nerd Fonts"
 	"$HOME/dotfiles/font_install.sh"
 
-	# install starship
-	echo "[=] installing starship"
-	curl -sS https://starship.rs/install.sh | sh -s -- -y
-	echo "[✓] starship installed"
+	if ! command_exist starship; then
+		# install starship
+		echo "[=] installing starship"
+		curl -sS https://starship.rs/install.sh | sh -s -- -y
+		echo "[✓] starship installed"
 
-	# configure starship
-	echo "[=] Configuring starship"
-	ln -snfv "$HOME/dotfiles/starship.toml" "$HOME/.config/starship.toml"
-	echo "[✓] Configuration complete"
+		# configure starship
+		echo "[=] Configuring starship"
+		ln -snfv "$HOME/dotfiles/starship.toml" "$HOME/.config/starship.toml"
+		echo "[✓] Configuration complete"
+	else
+		echo "[=] starship already installed"
+	fi
 
 	# copy git config
 	echo "[=] Setting up .gitconfig"
