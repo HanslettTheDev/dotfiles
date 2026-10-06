@@ -45,6 +45,22 @@ function command_exist() {
 	type "$1" &>/dev/null
 }
 
+function dir_exists() {
+	[ -d "$1" ]
+}
+
+function git_clone() {
+	local url=$1 dest=$2
+	if [ -d "$dest/.git" ]; then
+		echo "[=] $dest already cloned, skipping"]
+	elif [ -e "$dest" ]; then
+		echo "[!] $dest exists but is not a git repo" >&2
+		return 1
+	else 
+		git clone "$url" "$dest"
+
+}
+
 # Ensure required apps are installed before running the install script
 # If not available, install those apps
 
@@ -64,7 +80,7 @@ function install_required_tools() {
 # Clone my dotfiles repository
 function fetch_dotfiles_repository() {
 	echo "[=] Cloning dotfiles repository"
-	git clone https://github.com/HanslettTheDev/dotfiles.git "$HOME/dotfiles"
+	git_clone https://github.com/HanslettTheDev/dotfiles.git "$HOME/dotfiles"
 	echo "[✓] Repository cloned!"
 }
 
@@ -79,10 +95,13 @@ function install_utility_apps() {
 
 	# chrome
 	echo "[=] installing Chrome"
-	curl -fL -o /tmp/google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-	$SUDO apt-get install -y /tmp/google-chrome.deb
-	$SUDO apt-get update
-	echo "[✓] chrome installed"
+	if ! command_exist google-chrome || ! command_exist google-chrome-stable; then
+		curl -fL -o /tmp/google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+		$SUDO apt-get install -y /tmp/google-chrome.deb
+		$SUDO apt-get update
+		echo "[✓] chrome installed"
+	else
+		echo "[✓] chrome already installed"
 
 	# firefox
 	echo "[=] Updating firefox"
@@ -103,7 +122,7 @@ function install_i3wm() {
 
 	# installing i3-resurrect and configuration
 	echo "[=] installing i3-resurrect"
-	git clone https://github.com/JonnyHaystack/i3-resurrect.git "$HOME/i3-resurrect"
+	git_clone https://github.com/JonnyHaystack/i3-resurrect.git "$HOME/i3-resurrect"
 	cd "$HOME/i3-resurrect"
 	pip3 install --user . --break-system-packages
 	echo "[✓] i3-resurrect installed"
@@ -150,7 +169,7 @@ function terminal_configuration() {
 	ln -snfv "$HOME/dotfiles/.tmux.conf" "$HOME/.tmux.conf"
 
 	TPM_DIR="$HOME/.config/tmux/plugins/tpm"
-	git clone https://github.com/tmux-plugins/tpm "$TPM_DIR"
+	git_clone https://github.com/tmux-plugins/tpm "$TPM_DIR"
 	
 	# create a temporal tmux server to install plugins
 	SESSION_NAME="tmux-setup-$$"
@@ -185,7 +204,7 @@ function terminal_configuration() {
 function install_neovim() {
 	echo "[=] installing neovim"
 	pip3 install neovim --break-system-packages
-	git clone https://github.com/neovim/neovim "$HOME/neovim"
+	git_clone https://github.com/neovim/neovim "$HOME/neovim"
 	cd "$HOME/neovim"
 	git checkout v0.11.7
 	make CMAKE_BUILD_TYPE=RelWithDebInfo
@@ -201,7 +220,7 @@ function install_neovim() {
 
 function install_alacritty() {
 	echo "[=] installing alacritty"
-	git clone https://github.com/alacritty/alacritty.git "$HOME/alacritty"
+	git_clone https://github.com/alacritty/alacritty.git "$HOME/alacritty"
 	cd "$HOME/alacritty"
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
