@@ -41,6 +41,7 @@ ripgrep
 unzip
 fd-find
 cmake
+jq
 )
 
 # create the config dir
