@@ -84,7 +84,7 @@ function install_required_tools() {
 # Clone my dotfiles repository
 function fetch_dotfiles_repository() {
 	echo "[=] Cloning dotfiles repository"
-	git_clone https://github.com/HanslettTheDev/dotfiles.git "$HOME/.dotfiles"
+	git_clone https://github.com/HanslettTheDev/dotfiles.git "$HOME/dotfiles"
 	echo "[✓] Repository cloned!"
 }
 
@@ -153,7 +153,9 @@ function terminal_configuration() {
 
 	# install nerd fonts
 	echo "[=] Installing Nerd Fonts"
-	"$HOME/dotfiles/font_install.sh"
+	source_bashrc
+	curl -sL https://raw.githubusercontent.com/HanslettTheDev/dotfiles/refs/heads/main/font_install.sh | bash
+	echo "[✓] Nerd fonts installed"
 
 	if ! command_exist starship; then
 		# install starship
