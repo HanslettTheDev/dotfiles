@@ -230,7 +230,6 @@ function install_neovim() {
 		else
     			pip3 install neovim
 		fi
-		pip3 install neovim --break-system-packages
 		git_clone https://github.com/neovim/neovim "$HOME/neovim"
 		cd "$HOME/neovim"
 		git checkout v0.11.7
