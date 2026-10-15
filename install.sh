@@ -254,11 +254,10 @@ function install_alacritty() {
 		# install rustup
 		curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 		# **// Source this config to ensure rustup is available for use**
-		if ! command_exist rustup; then
-			set +eu
-			source "$HOME/.bashrc"
-			set -eu
-		fi
+		source_bashrc
+		set +eu
+		source "$HOME/.cargo/env"
+		set -eu
 		# **// ensure I have the right rust compiler**
 		rustup override set stable
 		rustup update stable
