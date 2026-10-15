@@ -229,15 +229,13 @@ function install_alacritty() {
 		echo "[=] installing alacritty"
 		git_clone https://github.com/alacritty/alacritty.git "$HOME/alacritty"
 		cd "$HOME/alacritty"
+		# install rustup
 		curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-		set +eu
-		source "$HOME/.bashrc"
-		set -eu
+		# **// Source this config to ensure rustup is available for use**
+		source_bashrc
 		# **// ensure I have the right rust compiler**
 		rustup override set stable
 		rustup update stable
-		# **// Source this config to ensure rustup is available for use**
-		source $HOME/.bashrc
 		# **// dependencies to build alacritty**
 		$SUDO apt-get install -y cmake g++ pkg-config libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3 gzip scdoc
 		cargo build --release
@@ -289,6 +287,11 @@ function install_nvm() {
 		curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.5/install.sh | bash
 		echo "[✓] nvm installed"
 	fi
+
+	source_bashrc
+
+	# install node
+	nvm install node
 }
 
 # Setup bashrc files 
@@ -302,11 +305,18 @@ function bash_config() {
 	ln -snfv "$HOME/dotfiles/.bashrc" "$HOME/.bashrc"
 	ln -snfv "$HOME/dotfiles/.bash_aliases" "$HOME/.bash_aliases"
 
+	source_bashrc
+
+	echo "[✓] .bashrc and .bash_aliases setup complete"
+}
+
+# Install docker 
+
+function source_bashrc() {
 	# source the config
 	set +eu
 	source "$HOME/.bashrc"
 	set -eu
-	echo "[✓] .bashrc and .bash_aliases setup complete"
 }
 
 # Clean Up residual files
@@ -338,7 +348,7 @@ install_alacritty
 
 install_uv
 
-install_nvm
+install_nvm # installs node 
 
 bash_config
 
