@@ -314,14 +314,14 @@ function install_nvm() {
 		
 		source_bashrc
 		
-		set +eu
-		source "$HOME/.nvm/"
-		set -eu
+		#set +eu
+		#source "$HOME/.nvm/"
+		#set -eu
 
-		echo "[=] installing node and npm"
+		#echo "[=] installing node and npm"
 		# install node
-		nvm install node
-		echo "[✓] node and npm installed"
+		#nvm install node
+		#echo "[✓] node and npm installed"
 	fi
 }
 
