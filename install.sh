@@ -18,6 +18,11 @@ if [[ $EUID -eq 0 ]]; then SUDO=""; else SUDO="sudo"; fi
 export DEBIAN_FRONTEND=noninteractive
 
 
+
+# Update apt repository list
+$SUDO apt-get update
+
+
 # FUNCTIONS AND GLOBAL VARIABLES
 
 PACKAGES=(
@@ -65,7 +70,6 @@ function git_clone() {
 # If not available, install those apps
 
 function install_required_tools() {
-	$SUDO apt-get update
 	$SUDO apt-get install -y "${PACKAGES[@]}" 2>&1
 
 	for pkg in "${PACKAGES[@]}"; do
@@ -98,17 +102,21 @@ function install_utility_apps() {
 	if ! command_exist google-chrome || ! command_exist google-chrome-stable; then
 		curl -fL -o /tmp/google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 		$SUDO apt-get install -y /tmp/google-chrome.deb
-		$SUDO apt-get update
 		echo "[✓] chrome installed"
 	else
 		echo "[✓] chrome already installed"
 	fi
 	# firefox
-	echo "[=] Updating firefox"
-	$SUDO snap refresh firefox
-	echo "[✓] firefox updated"
-
-	$SUDO apt-get update
+	echo "[=] installing Firefoxd"
+	if ! command_exist firefox; then
+		$SUDO snap install firefox
+		echo "[✓] firefox installed"
+	else
+		echo "[✓] firefox already installed"
+		echo "[=] checking Firefox for updates"
+		$SUDO snap refresh firefox
+		echo "[✓] check complete"
+	fi
 }
 
 
@@ -286,12 +294,14 @@ function install_nvm() {
 		echo "[=] installing nvm"
 		curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.5/install.sh | bash
 		echo "[✓] nvm installed"
+		
+		source_bashrc
+		
+		echo "[=] installing node and npm"
+		# install node
+		nvm install node
+		echo "[✓] node and npm installed"
 	fi
-
-	source_bashrc
-
-	# install node
-	nvm install node
 }
 
 # Setup bashrc files 
