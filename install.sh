@@ -133,7 +133,14 @@ function install_i3wm() {
 	echo "[=] installing i3-resurrect"
 	git_clone https://github.com/JonnyHaystack/i3-resurrect.git "$HOME/i3-resurrect"
 	cd "$HOME/i3-resurrect"
-	pip3 install --user .
+	
+	# Check if pip supports the --break-system-packages flag
+	if pip3 install --help | grep -q "break-system-packages"; then
+    		pip3 install --user . --break-system-packages
+	else
+    		pip3 install --user .
+	fi
+
 	echo "[✓] i3-resurrect installed"
 	
 	# configuring i3 and i3-resurrect
@@ -218,6 +225,11 @@ function terminal_configuration() {
 function install_neovim() {
 	if ! command_exist nvim; then
 		echo "[=] installing neovim"
+		if pip3 install --help | grep -q "break-system-packages"; then
+    			pip3 install neovim --break-system-packages
+		else
+    			pip3 install neovim
+		fi
 		pip3 install neovim --break-system-packages
 		git_clone https://github.com/neovim/neovim "$HOME/neovim"
 		cd "$HOME/neovim"
