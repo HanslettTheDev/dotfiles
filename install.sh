@@ -314,6 +314,10 @@ function install_nvm() {
 		
 		source_bashrc
 		
+		set +eu
+		source "$HOME/.nvm/"
+		set -eu
+
 		echo "[=] installing node and npm"
 		# install node
 		nvm install node
@@ -333,7 +337,7 @@ function bash_config() {
 	ln -snfv "$HOME/dotfiles/.bash_aliases" "$HOME/.bash_aliases"
 
 	source_bashrc
-
+	
 	echo "[✓] .bashrc and .bash_aliases setup complete"
 }
 
