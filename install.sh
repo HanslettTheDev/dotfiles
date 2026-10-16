@@ -345,6 +345,11 @@ function bash_config() {
 
 # Setup transparency, blur and background image for i3
 function setup_transparency_effects() {
+    # setup wallpaper directory
+	echo "[=] Setup wallpaper directory"
+	ln -snfv "$HOME/dotfiles/wallpapers" "$HOME/.wallpapers"
+	echo "[✓] wallpaper symlinked" 
+
     # Setup picom configuration
 
 	echo "[=] Setup picom configuration"
@@ -400,6 +405,8 @@ install_uv
 install_nvm # installs node 
 
 bash_config
+
+setup_transparency_effects
 
 clean_up
 
