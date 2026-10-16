@@ -42,6 +42,8 @@ unzip
 fd-find
 cmake
 jq
+nitrogen # for background image
+picom # transparency
 )
 
 # create the config dir
@@ -339,6 +341,22 @@ function bash_config() {
 	source_bashrc
 	
 	echo "[✓] .bashrc and .bash_aliases setup complete"
+}
+
+# Setup transparency, blur and background image for i3
+function setup_transparency_effects() {
+    # Setup picom configuration
+
+	echo "[=] Setup picom configuration"
+	ln -snfv "$HOME/dotfiles/picom" "$HOME/.config/picom"
+	echo "[✓] picom config symlinked" 
+
+
+    # Setup nitrogen configuration
+
+	echo "[=] Setup nitrogen configuration"
+	ln -snfv "$HOME/dotfiles/nitrogen" "$HOME/.config/nitrogen"
+	echo "[✓] nitrogen config symlinked" 
 }
 
 # Install docker 
