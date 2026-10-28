@@ -45,6 +45,7 @@ jq
 nitrogen # for background image
 picom # transparency
 pulseaudio
+pavucontrol
 )
 
 # create the config dir
