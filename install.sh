@@ -44,6 +44,7 @@ cmake
 jq
 nitrogen # for background image
 picom # transparency
+pulseaudio
 )
 
 # create the config dir

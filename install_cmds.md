@@ -138,3 +138,44 @@ sudo systemctl status docker
 **If docker isn't running**
 sudo systemctl start docker
 sudo docker run hello-world
+# For managing and running test containers on linux
+# install lxd and lxc
+
+sudo snap install lxd
+
+# Install LXD
+sudo snap install lxd
+
+# Add your current user to the lxd group
+sudo usermod -aG lxd $USER
+newgrp lxd
+
+# Initialize LXD (press Enter to accept the standard defaults for networking/storage)
+lxd init
+
+lxc launch ubuntu:22.04 dotfile-sandbox
+
+# take a snapshot of the container and restore later if a script breaks
+lxc snapshot dotfile-sandbox clean-slate
+lxc restore dotfile-sandbox clean-slate
+
+
+# login to the container
+lxc exec dotfile-sandbox -- /bin/bash
+
+# create regular user
+# Create the user and set a password
+adduser testuser
+
+# Add the user to the sudo group
+usermod -aG sudo testuser
+
+lxc exec dotfile-sandbox --user 1000 -- bash
+
+or
+
+lxc exec dotfile-sandbox -- su - testuser
+
+
+# wipe the container
+lxc delete dotfile-sandbox --force

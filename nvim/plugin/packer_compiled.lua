@@ -132,7 +132,7 @@ _G.packer_plugins = {
   ["live-server.nvim"] = {
     loaded = true,
     path = "/home/venom/.local/share/nvim/site/pack/packer/start/live-server.nvim",
-    url = "https://github.com/barrett-ruth/live-server.nvim"
+    url = "https://forge.barrettruth.com/barrettruth/live-server.nvim"
   },
   ["lspkind.nvim"] = {
     loaded = true,

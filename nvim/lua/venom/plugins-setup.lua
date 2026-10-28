@@ -112,7 +112,7 @@ return require("packer").startup(function(use)
     use("JoosepAlviste/nvim-ts-context-commentstring")
 
     -- Live server
-    use("barrett-ruth/live-server.nvim")
+    use("https://forge.barrettruth.com/barrettruth/live-server.nvim")
 
     -- Vim Obsession
     use("tpope/vim-obsession")

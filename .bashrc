@@ -116,8 +116,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# starship
-eval "$(starship init bash)"
 
 # fzf
 # Set up fzf key bindings and fuzzy completion
@@ -150,4 +148,7 @@ eval "$(uv generate-shell-completion bash)"
 
 source ~/.bash_completion/alacritty
 
-. "$HOME/.cargo/env"
+source "$HOME/.cargo/env"
+
+# starship
+eval "$(starship init bash)"
